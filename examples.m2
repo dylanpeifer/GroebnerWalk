@@ -1,13 +1,19 @@
--- list of examples for testing the Groebner walk
--- sources:  AGK = Amrhein, Gloor, Kuchlin, "On the Walk"
---          Tran = Tran, "A Fast Algorithm for Groebner Basis Conversion and its Applications" 
---           ABR = Abbott, Bigatti, Robbiano, "Implicitization of Hypersurfaces"
+-- This file contains a collection of examples for benchmarking the
+-- GroebnerWalk package. Each example has timings in seconds for the two walk
+-- strategies and Macaulay2's standard gb function. Timings were performed on a
+-- 2.3GHz i7-3615QM using Macaulay2 1.11.
+--
+-- sources:
+--   AGK = Amrhein, Gloor, Kuchlin, "On the Walk"
+--   Tran = Tran, "A Fast Algorithm for Groebner Basis Conversion and its
+--     Applications"
+--   ABR = Abbott, Bigatti, Robbiano, "Implicitization of Hypersurfaces"
 
 
 -- example 1, random cubics
--- walk: 3.07081
--- gen walk: 3.89484
--- gb: 0.012803
+-- walk: 3.13709
+-- gen walk: 4.02557
+-- gb: 0.00966173
 restart
 needsPackage "GroebnerWalk"
 
@@ -21,9 +27,9 @@ G2 = elapsedTime groebnerWalk(I1, R2, Strategy => Generic)
 G3 = elapsedTime gb sub(I1, R2)
 
 -- example 2, AGK ex4
--- walk: 1.95955
--- gen walk: 3.90081
--- gb: 2.85142
+-- walk: 2.09195
+-- gen walk: 4.13324
+-- gb: 2.7665
 restart
 needsPackage "GroebnerWalk"
 
@@ -39,9 +45,9 @@ G2 = elapsedTime groebnerWalk(I1, R2, Strategy => Generic)
 G3 = elapsedTime gb sub(I1, R2)
 
 -- example 3, AGK ex5
--- walk: 0.684128
--- gen walk: 2.49397
--- gb: 0.498124
+-- walk: 0.700214
+-- gen walk: 2.62612
+-- gb: 0.486051
 restart
 needsPackage "GroebnerWalk"
 
@@ -57,9 +63,9 @@ G2 = elapsedTime groebnerWalk(I1, R2, Strategy => Generic)
 G3 = elapsedTime gb sub(I1, R2)
 
 -- example 4, AGK ex6
--- walk: 8.02008
--- gen walk: 32.5516
--- gb: 30.9351
+-- walk: 8.70323
+-- gen walk: 32.839
+-- gb: 30.3876
 restart
 needsPackage "GroebnerWalk"
 
@@ -75,9 +81,9 @@ G2 = elapsedTime groebnerWalk(I1, R2, Strategy => Generic)
 G3 = elapsedTime gb sub(I1, R2)
 
 -- example 5, AGK ex8
--- walk: 9.73
--- gen walk: 66.7532
--- gb: 24.4185
+-- walk: 8.58052
+-- gen walk: 62.4791
+-- gb: 24.1692
 restart
 needsPackage "GroebnerWalk"
 
@@ -93,9 +99,9 @@ G2 = elapsedTime groebnerWalk(I1, R2, Strategy => Generic)
 G3 = elapsedTime gb sub(I1, R2)
 
 -- example 6, Tran Example 3
--- walk: 9.06356
--- gen walk: 16.812
--- gb: 214.464
+-- walk: 8.22833
+-- gen walk: 15.6687
+-- gb: 213.924
 restart
 needsPackage "GroebnerWalk"
 
@@ -111,9 +117,9 @@ G2 = elapsedTime groebnerWalk(I1, R2, Strategy => Generic)
 G3 = elapsedTime gb sub(I1, R2)
 
 -- example 7, ABR 8.20
--- walk: 1499.26
--- gen walk: overflow 
--- gb: 9163.53
+-- walk: 1493.08
+-- gen walk: (memory overflow) 
+-- gb: 9095.68
 restart
 needsPackage "GroebnerWalk"
 
@@ -127,9 +133,9 @@ G2 = elapsedTime groebnerWalk(I1, R2, Strategy => Generic)
 G3 = elapsedTime gb sub(I1, R2)
 
 -- example 8, ABR 8.22
--- walk: 211.17
--- gen walk: 42.3336
--- gb: 5373.89
+-- walk: 213.421
+-- gen walk: 43.5308
+-- gb: 5095.79
 restart
 needsPackage "GroebnerWalk"
 
